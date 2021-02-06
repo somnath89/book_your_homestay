@@ -1,0 +1,10 @@
+{
+	"auth": {
+		"bookyourhomestay3702c0f8": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [],
+			"customAuth": false
+		}
+	}
+}

@@ -1,0 +1,38 @@
+{
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "amplify-amplify82ddfcdf2e344-staging-192010-authRole",
+			"UnauthRoleArn": "arn:aws:iam::656616470522:role/amplify-amplify82ddfcdf2e344-staging-192010-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::656616470522:role/amplify-amplify82ddfcdf2e344-staging-192010-authRole",
+			"Region": "us-east-1",
+			"DeploymentBucketName": "amplify-amplify82ddfcdf2e344-staging-192010-deployment",
+			"UnauthRoleName": "amplify-amplify82ddfcdf2e344-staging-192010-unauthRole",
+			"StackName": "amplify-amplify82ddfcdf2e344-staging-192010",
+			"StackId": "arn:aws:cloudformation:us-east-1:656616470522:stack/amplify-amplify82ddfcdf2e344-staging-192010/54cbd770-68b0-11eb-b658-0af9b05c2cc1",
+			"AmplifyAppId": "d1z3rn2y6ytvn2"
+		}
+	},
+	"auth": {
+		"bookyourhomestay3702c0f8": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [],
+			"customAuth": false,
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplify-amplify82ddfcdf2e344-staging-192010-deployment/amplify-cfn-templates/auth/bookyourhomestay3702c0f8-cloudformation-template.yml",
+				"logicalId": "authbookyourhomestay3702c0f8"
+			},
+			"lastPushTimeStamp": "2021-02-06T19:50:52.274Z",
+			"output": {
+				"AppClientSecret": "12uce08jmvb47kj8c5d0t944tplr7iqi0nrq6ec2kv2cf5362tt4",
+				"UserPoolId": "us-east-1_410H7fZl7",
+				"AppClientIDWeb": "oe19p62g74idr8ts10epl7sn1",
+				"AppClientID": "5h70q19ph93b0h8nl7j5k348jp",
+				"IdentityPoolId": "us-east-1:bb64fced-12e4-4e0f-841e-daafa3325e90",
+				"IdentityPoolName": "bookyourhomestay3702c0f8_identitypool_3702c0f8__staging",
+				"UserPoolName": "bookyourhomestay3702c0f8_userpool_3702c0f8"
+			},
+			"lastPushDirHash": "rrv7RaiVv/RDsE3LHTVuErQAJkY="
+		}
+	}
+}
