@@ -1,0 +1,18 @@
+{
+	
+	"property_ID":"",
+	"location":"",
+	"host_name":"",
+	"property_details":{
+       "amenities":"",
+       "price":"xyz/night",
+       "photos":[],
+       "rating":""
+	},
+	"bookings":[{
+        "user_name":"",
+        "checkin":"",
+        "checkout":"",
+        "review":""
+	}]
+}
