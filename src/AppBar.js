@@ -18,6 +18,8 @@ import Button from '@material-ui/core/Button';
 import Divider from '@material-ui/core/Divider';
 import { AmplifySignOut } from '@aws-amplify/ui-react';
 import Link from '@material-ui/core/Link';
+import TextField from '@material-ui/core/TextField';
+import Paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -49,11 +51,16 @@ const useStyles = makeStyles((theme) => ({
   },
   searchIcon: {
     padding: theme.spacing(0, 2),
-    height: '100%',
-    position: 'absolute',
+    /*height: '100%',*/
+    /*position: 'absolute',*/
     pointerEvents: 'none',
+    borderRadius:'50px',
+    border:'1px solid grey',
     display: 'flex',
     alignItems: 'center',
+    color:'white',
+    margin:'10px',
+    backgroundColor:'black',
     justifyContent: 'center',
   },
   inputRoot: {
@@ -171,7 +178,7 @@ export function NavigationBar(props) {
           <Typography className={classes.title} variant="h6" noWrap>
             Book Your homestay
           </Typography>
-          <div className={classes.search}>
+          {/*<div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>
@@ -183,7 +190,7 @@ export function NavigationBar(props) {
               }}
               inputProps={{ 'aria-label': 'search' }}
             />
-          </div>
+          </div>*/}
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <Button style={{textTransform:'none',color:'white'}}>{props.title}</Button>
