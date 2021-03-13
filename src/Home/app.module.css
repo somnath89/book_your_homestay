@@ -9,6 +9,38 @@
     background-color:black;
     justify-content: center;
 }
+.closeHelp{
+    padding: 10px;
+    border-radius:50px;
+    border:1px solid grey;
+    display: flex;
+    align-items: center;
+    color:white;
+    margin:10px;
+    background-color:black;
+    justify-content: center;
+    width:100px;
+    position:absolute;
+    top:38px;
+    right:10px;
+    z-index:200;
+}
+.showHelp{
+    padding: 10px;
+    border-radius:50px;
+    border:1px solid grey;
+    display: flex;
+    align-items: center;
+    color:white;
+    margin:10px;
+    background-color:black;
+    justify-content: center;
+    width:70px;
+    position:absolute;
+    top:1px;
+    right:200px;
+    z-index:200;
+}
 .overlay {
   position: fixed; /* Sit on top of the page content */
   width: 100%; /* Full width (cover the whole page) */
@@ -39,5 +71,16 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
-
-
+.amplifychatbot{
+    position: absolute;
+    top: 38px;
+    right: -4px;
+    /*bottom:-16px;*/
+    z-index:50
+}
+.showBot{
+   display:block;
+}
+.hideBot{
+   display:none;
+}

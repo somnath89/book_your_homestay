@@ -21,6 +21,17 @@ const store = createStore(reducer,initialState);
 
 Amplify.configure(config);
 
+Amplify.configure({Interactions: {
+                  bots: {
+                    "BookYourHomestay": {
+                      "name": "BookYourHomestay",
+                      "alias": "$LATEST",
+                      "region": "us-east-1",
+                    },
+                  }
+                }
+             })
+
 ReactDOM.render(
   <React.StrictMode>
    <Provider store={store}>

@@ -49,7 +49,7 @@ class SearchBarNew extends Component {
   render() {
     return (
       <div className="container-fluid">
-        <Paper elevation={3} style={{display:'flex',padding:'10px',position:'fixed',right:'290px',top:'6px'}}>
+        <Paper elevation={3} style={{display:'flex',padding:'10px',position:'fixed',right:'316px',top:'6px'}}>
            <TextField id="outlined-basic" label="Location" variant="outlined" style={{padding:'5px'}} onChange={(e) => this.handleLocationChange(e)}/>
            <TextField id="outlined-basic" label="Check-In" variant="outlined" style={{padding:'5px'}} onChange={(e) => this.handleCheckInChange(e)}/>
            <TextField id="outlined-basic" label="Check-Out" variant="outlined" style={{padding:'5px'}} onChange={(e) =>this.handleCheckOutChange(e)}/>

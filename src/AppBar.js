@@ -21,6 +21,8 @@ import Link from '@material-ui/core/Link';
 import TextField from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
 
+import Help from './Home/Help';
+
 const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
@@ -33,6 +35,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('sm')]: {
       display: 'block',
     },
+    fontSize:'1.2rem'
   },
   search: {
     position: 'relative',
@@ -126,6 +129,8 @@ export function NavigationBar(props) {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
+     <MenuItem><Link href="/">Home</Link></MenuItem>
+          <Divider />
       <MenuItem><Link href="/myAccount">My Account</Link></MenuItem>
             <Divider />
         <MenuItem><Link href="/host">
@@ -191,6 +196,7 @@ export function NavigationBar(props) {
               inputProps={{ 'aria-label': 'search' }}
             />
           </div>*/}
+          <Help/>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <Button style={{textTransform:'none',color:'white'}}>{props.title}</Button>

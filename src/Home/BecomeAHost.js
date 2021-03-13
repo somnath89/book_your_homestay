@@ -13,10 +13,11 @@ class BecomeAHost extends Component {
   constructor(props)
   {
     super(props);
-    this.handleClick = this.handleClick.bind(this);
+    this.registerProperty = this.registerProperty.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.fetchListedProperties = this.fetchListedProperties.bind(this);
     this.paintListings = this.paintListings.bind(this);
+    this.sendEmail = this.sendEmail.bind(this);
     this.state={
                  amenities: "",
                  price: "",
@@ -30,6 +31,20 @@ class BecomeAHost extends Component {
   }
   handleChange(event){
     this.setState({...this.state, [event.target.id]: event.target.value});
+  }
+  async sendEmail(){
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Access-Control-Allow-Origin':'*','Accept': 'application/json','Content-Type': 'application/json' },
+      body: JSON.stringify({email:"Thank you for listing your property...You'll receive a confirmation once verification is completed.",
+                            email_subject:"Listing request received"})
+  };
+
+   fetch('https://5jvdsw44gj.execute-api.us-east-1.amazonaws.com/uat/sendEmail',requestOptions);
+
+   //this doesnt return any response but send email in background
+
+
   }
   async fetchListedProperties(){
       this.props.showLoading(true);
@@ -46,7 +61,7 @@ class BecomeAHost extends Component {
        this.props.showLoading(false);
        this.props.setUserListings(data);
   }
-  async handleClick(){
+  async registerProperty(){
       this.props.showLoading(true);
       var propId = ""+Math.floor(1000 + Math.random() * 9000); //random 4-digit number
       var payload = {...this.state,host_name:Auth.user.username,property_ID:propId,rating:"4.3"}
@@ -63,7 +78,10 @@ class BecomeAHost extends Component {
      console.log("Data retrieved ---->"+JSON.stringify(data));
      //this.props.search(data);
      this.props.showLoading(false);
+     alert("Thank you for listing your property...You'll receive a confirmation once verification is completed.");
      this.fetchListedProperties();
+     this.sendEmail();
+
    }
 
 paintListings(items){
@@ -87,11 +105,10 @@ paintListings(items){
            <TextField id="prop_location" label="Location" variant="outlined" style={{padding:'5px'}} onChange={(e) =>this.handleChange(e)}/>
            <TextField id="price" label="Price/night" variant="outlined" style={{padding:'5px'}} onChange={(e) =>this.handleChange(e)}/>
            <TextField id="amenities" label="Amenities" variant="outlined" style={{padding:'5px'}} onChange={(e) =>this.handleChange(e)}/>
-           <div className={styles.searchIcon} onClick={(e) => this.handleClick()}>Register</div>
+           <div className={styles.searchIcon} onClick={(e) => this.registerProperty()}>Register</div>
       </Paper>
       <h3>My Listed Properties</h3>
        {this.props.user_listings.length>0?<div style={{display:'inline-flex'}}>{this.paintListings(this.props.user_listings)}</div>:null}
-
       </div>
     );
   }
