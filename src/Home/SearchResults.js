@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styles from './app.module.css';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
-import {addStudent,deleteStudent,updateStudent,showLoading} from '../actions/index';
+import {search,showLoading} from '../actions/index';
 
 import imgBackground from '../images/img2.jpg';
 
@@ -13,12 +13,28 @@ class SearchResults extends Component {
   {
     super(props);
     this.paintCardImages = this.paintCardImages.bind(this);
+    this.getTop5Stays = this.getTop5Stays.bind(this);
     this.state={
         searchItems:[]
     }
   }
-  componentWillMount(){
+  componentDidMount(){
+    this.getTop5Stays();
+  }
+  async getTop5Stays(){
+    this.props.showLoading(true);
+      const requestOptions = {
+                method: 'POST',
+                headers: { 'Access-Control-Allow-Origin':'*','Accept': 'application/json','Content-Type': 'application/json' },
+                body: JSON.stringify({location: "*"})
+            };
 
+     const response = await fetch('https://d27je0z2652pbs.cloudfront.net/default/search',requestOptions);
+     const data = await response.json();
+
+     console.log("Data in search ---->"+JSON.stringify(data));
+     this.props.search(data);
+     this.props.showLoading(false);
   }
 
 
@@ -32,13 +48,13 @@ class SearchResults extends Component {
     return newcontent;
     }
   render() {
-    console.log("Loading--->"+this.props.loading);
+    console.log("search--->"+JSON.stringify(this.props.search));
     return (
       <div className="backgroundImage">
       <p>   </p>
       {this.props.loading?<div className={styles.overlay}><div className={styles.loader}></div></div>:null}
       {/*this.props.loading?<img className={styles.overlay} src={process.env.PUBLIC_URL+'/images/loading_transparent.gif'}/>:null*/}
-    {this.props.search.length>0?<div style={{display:'inline-flex'}}>{this.paintCardImages(this.props.search)}</div>:null}
+    {this.props.search_items.length>0?<div style={{display:'inline-flex'}}>{this.paintCardImages(this.props.search_items)}</div>:null}
       </div>
     );
   }
@@ -47,14 +63,14 @@ class SearchResults extends Component {
 const mapStateToProps = (state) => {
 
   return {
-    search : state.search_results,
+    search_items : state.search_results,
     loading:state.loading
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    addStudent:addStudent,
+    search:search,
     showLoading:showLoading
   },dispatch);
 }

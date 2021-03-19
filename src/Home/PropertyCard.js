@@ -81,21 +81,6 @@ export default function PropertyCard(props) {
               </Typography>
              </CardContent>
             }
-      <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-      </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph>
-            <b>Amenities:</b>{props.property.amenities}
-          </Typography>
-          <Typography paragraph>
-            {props.property.rating}
-          </Typography>
-         </CardContent>
-      </Collapse>
-    </Card>
+     </Card>
   );
 }
