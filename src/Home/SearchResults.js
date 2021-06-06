@@ -21,21 +21,41 @@ class SearchResults extends Component {
   componentDidMount(){
     this.getTop5Stays();
   }
-  async getTop5Stays(){
+
+  /*async getTop5Stays(){
     this.props.showLoading(true);
       const requestOptions = {
                 method: 'POST',
                 headers: { 'Access-Control-Allow-Origin':'*','Accept': 'application/json','Content-Type': 'application/json' },
                 body: JSON.stringify({location: "*"})
             };
-
-     const response = await fetch('https://d27je0z2652pbs.cloudfront.net/default/search',requestOptions);
+      //dynamoDb end-point
+     //const response = await fetch('https://d27je0z2652pbs.cloudfront.net/default/search',requestOptions);
+     //mongoDb end-point
+     const response = await fetch('https://2kvzxgurig.execute-api.us-east-1.amazonaws.com/default/mongoConnector',requestOptions);
      const data = await response.json();
 
      console.log("Data in search ---->"+JSON.stringify(data));
      this.props.search(data);
      this.props.showLoading(false);
-  }
+  }*/
+
+  async getTop5Stays(){
+      this.props.showLoading(true);
+        const requestOptions = {
+                  method: 'GET',
+                  headers: { 'Access-Control-Allow-Origin':'*','Accept': 'application/json','Content-Type': 'application/json' },
+               };
+        //dynamoDb end-point
+       //const response = await fetch('https://d27je0z2652pbs.cloudfront.net/default/search',requestOptions);
+       //mongoDb end-point
+       const response = await fetch('https://2kvzxgurig.execute-api.us-east-1.amazonaws.com/default/mongoConnector',requestOptions);
+       const data = await response.json();
+
+       console.log("Data in search ---->"+JSON.stringify(data));
+       this.props.search(data);
+       this.props.showLoading(false);
+    }
 
 
   paintCardImages(items){

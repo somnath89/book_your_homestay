@@ -37,7 +37,10 @@ class SearchBarNew extends Component {
                 body: JSON.stringify({location: this.state.location})
             };
 
-     const response = await fetch('https://5jvdsw44gj.execute-api.us-east-1.amazonaws.com/uat/searchStays',requestOptions);
+     //dynamoDb end-point
+     //const response = await fetch('https://5jvdsw44gj.execute-api.us-east-1.amazonaws.com/uat/searchStays',requestOptions);
+     //mongoDb end-point
+     const response = await fetch('https://2kvzxgurig.execute-api.us-east-1.amazonaws.com/default/mongoConnector',requestOptions);
      const data = await response.json();
 
      console.log("Data retrieved ---->"+JSON.stringify(data));
